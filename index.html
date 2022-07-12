@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=660, user-scalable=no">
 <html>
-	<head>
-		<title>Rainbow trail effect of Asriel Dreemurr</title>
-		<!-- Fabric.JS 4.6.0 -->
-		<script src="fabric.min.js"></script>
-		<style>
-			#scr {
-				background-image: url("background.png");
-			}
-			
-			button {
-				font-size: 16px;
-				font-weight: bold;
-			}
-		</style>
-	</head>
-	<body>
-		<!-- WebGL doesn't allow loading textures from "file://" source, so I embedded the images with base64 -->
-		<img style="display: none" id="asrielImg" src="data:image/png;base64,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"></img>
-		<img style="display: none" id="asrielAfterImg" src="data:image/png;base64,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"></img>
-		
-		<canvas id="scr" width="640" height="480"></canvas>
-		<script src="main.js"></script><br>
-		<button onclick="toggleFPS()">30/60+ FPS</button>
-		<button id="toggleMouseButton" onclick="toggleMouse()">Toggle cursor following</button>
-		<button onclick="toggleMode()">Toggle animation mode</button>
-		<br><br><br>
-		<b style="color: darkorange; font-size: 32px">Created by <a href="https://reddit.com/user/VladStepu">r/VladStepu</a></b><br><br>
-		<i style="font-size: 20px">Image manipulation (position, color, opacity...) library used - <a href="http://fabricjs.com">Fabric.JS</a></i>
-		<script>
-			if ('ontouchmove' in window)
-				document.getElementById("toggleMouseButton").innerText = "Toggle touch following";
-		</script>
-	</body>
+    <head>
+        <title>Rainbow trail effect of Asriel Dreemurr</title>
+        <!-- Fabric.JS 4.6.0 -->
+        <script src="fabric.min.js"></script>
+        <style>
+            #scr {
+                background-image: url("background.png");
+            }
+            
+            button {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- WebGL doesn't allow loading textures from "file://" source, so I embedded the images with base64 -->
+        <img style="display: none" id="asrielImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAADkCAYAAABe3pCtAAAHhklEQVR4nO2d25LcKgxF8an5/1/2eUjc0yZgJJBAeO9VlYekfSGGZXF3Sricf/9A8t/qBJA1HKsTsIAzpZTO84/sx/F5BFDPgsaDwowHhRkPys/qBBSQ1rS1MfkW2xX3b93HK72u0HhQIpVCqZEpJVVt/PG6X9dJpeMe7uOV3inQeFAilD6VOTkCk0TGe5leu1/hulOh8aCsLHVFc/KY+zm4YVjBJGszRdeTpn+1+TQelDDGj8bqz8mVmN2L9Hra9NN4soSIPXc1jpRSOo5jKHZbs9rcXmg8KCuNLxp8/T012s/WsVxLfn9tugvHTYXGgxIpLomMyWn1tVshvU+rx6/w70ug8aCEKH0VQtXetUSJ5TVoPCgRS6Npn7gVhmMIIaDxoOzUc3fDu5Y/q7WwChoPSqS401WLb/XgaXv4rK+Xn5eCPHMaD8q2MT6nFpOlffuCuXevgsaD8hrja0hjcpRRv1nQeFAiGN+1IqUWw72p1QEUb5QQo3Q0HpQIxpuQmz/6BmDPHXklrzH+wqod/jbDc2g8KK8xvla71ppr3UcfFRoPygrjTZRZ1YdueF/tXjum0HhQZhh/K9nWo1+zYq53ur969D7/NHSDBjQeFE/jVTteWNEaV+8dj7d+swh223Lt06fxoHgYv8T0FtLRs1U8jDq6mE/jQbEsRSamW+8qNTqv3mFXLhHeu2TReFAsYvzjDBrpihcvCjtXFI+bPZMnv6/0OKuYT+NBGTF+aP16r2G186zn4lnFdun1teeNmk/jQTFvx2vnqlnH1l7zZ62k6djfXnWeFBoPipnxtXZmPuo0ay/amvna80eRXqdwXPE5WplP40GxKNZdu1B//jLY47ZqDGB0vX3L8O9bfZ9v1YNH40HRxPhau/G2J23h95zbFx+qB20+q1XxJhI9L8HzVbXraTwoEuPzGPNofu18L1avlrW4ZOXfVc9X26NH40F5KhW9tUlRu73WM2X99SdrRr+G1bELdn69atIq9ymeR+NB6TH+kdEeMum4ee38WWhH70b73rXPn8aTImLj3RLw0n3kWkx8rjSe/CLRzcR8q7VmUd8QVukzfM5sx5N/0RTPrnH1wr1MgltrJ0rB2jST8wzfQMXnM/CcH6HxoIwU15a5+bW7+gWsiDq+L2h3a5+zCBoPikfxLpbQqD1uF1HS85AOrpYl47ivlq3eOMh6+SjpaMHVssQE81m24hsH7YGbzaqvWdF4UMLvZRtl5k1O1HRJofGgDPfcTZxJ8nic9vpatPeZOHOJPXdETrgYrzVl1rdjtG8Sx1E8E2g8KOGMHyWaWVGh8aBsk/HneYZeORs9fTnbZDyxZbsYv6rHbCebJdB4UHqMn7LCJkfaXteuvatdv3V86zxvRne4pPGgvC7G58dJ99LRHl87bxdoPCjbGT+rb16bjt2g8aBMM1472qbddfpC+105afqs9tVvXX/WG4zGg7JdjG9hZe7uMbwFjQdFvZft2/qsd6e3B4/Gg8KMB4UZD0rYWn30Wao1dkkvjQfltRk/Ogdutzl0Wl6b8eSZsDG+l9zS0TVsu8RsLTQeFGY8KMx4ULh7tRHcvZpsgXutPqqhUZk1E4fGg7JNO96q7956L9vodY8aNB4UZjwozHhQ3L87571efVVs9o7t3u15Gg/KNrX6nNFaflTTZ0HjQdnW+ItZc/PeYvoFjQdle+MvvMx/m+kXNB6UUjE2XSO3elcobTqifx9PS609T+NBeU2Mz+ndK+dtsbwGjQfltcbnoJgshcaD4mY8DRvDe+4djQelZPyR0u+eKm9eMfpmOB5PijRj/OwdF8kY0roVjQelZPwttl8liObHptZTWdv/jsaD0ozxND82vWMSNB6U7+Iiardr94cnY0ifryLfjpRoPCzMeFCY8aCoR+dYy1+L1Ve4aDwoP4lfnoAg78mj8aB0z8BhrJ+L9Rc2aTwoYuMFJe42cyf99gryFTBAYSbNWfn9z4/sqydPeMyyLXbSv3XVqRWF5+P6oGg8KD+Js2oh4OgcSSk9xPiHdnmt9k7mIGo9tfpVaDwo38YXY31hbxmaHoOb6Q/5lR+fUqLxsDT3sk3/xhCt6cUSSe4YtONV+UXjQXnquctLClWNjSq/aDwozHhQmPGgwOx6FZ3Z/SU0HhRmPCjMeFA8Yzx77AJD40FhxoPCjAeF7fhgzGrP03hQmPGgMONBYcaDwowHZVmtnvvjrYXGgzLd+FbfvXZnTdIHjQdlmvHSUbrW73wj2EDjQZlmvJWJfCPYQONBed3oHN8IMmg8KDOKd3FvnahmafcA8vp/eO+CReNBmandTaWAb4CunTh7dwmT1kVoPDFlpWaPbwBrOsxxrZtovxplDY0HZXlg/cL1DWBl/MN1xUn5vr7gOBdoPCiRjM8x3VvXy/gJ6XCBxoPCjAeFGQ9KxBi/OrZHT48JNB4UZjwozHhQmPGTOc/zqi+caeE3+ZjxoESac8evYE2ExoMSPuOP43gcAWv97k309NUIn/HEB2Y8KMx4UCLV6k2/cWvYJx41XUPQeFDiVTd/efx26he1373+b7X7SNMX4pnTeFD+ByHYBp0TwfN7AAAAAElFTkSuQmCC"></img>
+        <img style="display: none" id="asrielAfterImg" src="data:image/png;base64,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"></img>
+        
+        <canvas id="scr" width="640" height="480"></canvas>
+        <script src="main.js"></script><br>
+        <button onclick="toggleFPS()">30/60+ FPS</button>
+        <button id="toggleMouseButton" onclick="toggleMouse()">Toggle cursor following</button>
+        <button onclick="toggleMode()">Toggle animation mode</button>
+        <br><br><br>
+        <b style="color: darkorange; font-size: 32px">Created by <a href="https://reddit.com/user/VladStepu">r/VladStepu</a></b><br><br>
+        <i style="font-size: 20px">Image manipulation (position, color, opacity...) library used - <a href="http://fabricjs.com">Fabric.JS</a></i>
+        <script>
+            if ('ontouchmove' in window)
+                document.getElementById("toggleMouseButton").innerText = "Toggle touch following";
+        </script>
+    </body>
 </html>
