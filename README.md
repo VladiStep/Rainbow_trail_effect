@@ -1,5 +1,5 @@
 # Rainbow_trail_effect
-The rainbow trail effect of Asriel Dreemurr from Undertale.
+The rainbow trail effect of Asriel Dreemurr from Undertale.<br>
 <i>(consider this as spoiler for "True Pacifist" ending)</i>
 
 Proof-of-concept of the rainbow trail effect of Asriel Dreemurr from Undertale.<br>
