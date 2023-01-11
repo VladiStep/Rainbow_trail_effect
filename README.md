@@ -5,4 +5,4 @@ Proof-of-concept of the rainbow trail effect of Asriel Dreemurr from Undertale.<
 <br>
 Last modification date: December 4, 2021.<br>
 <br>
-Made with HTML5 + JavaScript + <a href="http://fabricjs.com/">Fabric.js</a>.
+Made with HTML5 + JavaScript + <a href="http://fabricjs.com/">Fabric.js</a>
